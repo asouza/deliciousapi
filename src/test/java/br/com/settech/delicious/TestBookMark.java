@@ -34,8 +34,5 @@ public class TestBookMark {
 		bookMark = new BookMark(new MockRequesterForRetrivePosts());
 		Posts posts = bookMark.allPosts(new AllCriteria());
 		Assert.assertEquals(2,posts.size());		
-		for(Post post : posts){
-			System.out.println(post);
-		}
 	}
 }
