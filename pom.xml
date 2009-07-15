@@ -6,6 +6,7 @@
 	<name>Delicious integration</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>provide integration with delicious services</description>
+	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
