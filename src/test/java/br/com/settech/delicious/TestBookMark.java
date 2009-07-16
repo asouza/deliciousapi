@@ -9,6 +9,7 @@ import br.com.settech.delicious.attribute.HREF;
 import br.com.settech.delicious.criteria.AllCriteria;
 import br.com.settech.delicious.list.Posts;
 import br.com.settech.delicious.mock.MockRequesterForRetrivePosts;
+import br.com.settech.delicious.mock.MockRequesterForRetriveZeroPosts;
 import br.com.settech.delicious.mock.MockRequesterForSuccessfulSave;
 import br.com.settech.delicious.mock.MockRequesterForUnSuccessfulSave;
 
@@ -35,4 +36,11 @@ public class TestBookMark {
 		Posts posts = bookMark.allPosts(new AllCriteria());
 		Assert.assertEquals(2,posts.size());		
 	}
+	
+	@Test
+	public void testBuildPostsFromAnyFetchMethodWithZeroResults() {
+		bookMark = new BookMark(new MockRequesterForRetriveZeroPosts());
+		Posts posts = bookMark.allPosts(new AllCriteria());		
+		Assert.assertEquals(0,posts.size());		
+	}	
 }

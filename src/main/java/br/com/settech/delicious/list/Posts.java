@@ -15,7 +15,7 @@ public class Posts implements Collection<Post>{
 	private Tag tag;
 
 	public Posts() {
-		super();
+		super();		
 		posts = new LinkedHashSet<Post>();
 		tag = new Tag("");		
 		update = new Time();
@@ -108,8 +108,6 @@ public class Posts implements Collection<Post>{
 	}
 
 
-
-
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
@@ -117,5 +115,10 @@ public class Posts implements Collection<Post>{
 	}
 	
 	
-	
+	public Posts createEmptyListOfPostsIfThereArentPosts(){
+		if(posts==null){
+			posts = new LinkedHashSet<Post>();
+		}
+		return this;
+	}
 }

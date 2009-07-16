@@ -1,5 +1,6 @@
 package br.com.settech.delicious.inaction;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import br.com.settech.delicious.BookMark;
@@ -19,16 +20,11 @@ import br.com.settech.delicious.criteria.AllCriteria;
  * @author asouza
  *
  */
-public class TestBookMarkInAction {
+public class AbstractBookMarkInAction {
 
 	private static BookMark bookMark;
 
 	@Test
-	public void doNothing(){
-		
-	}
-	
-
 	public void testSave() {
 		Post post = Post.newPostWithNowTimeNotSharedAndNotReplaceable(
 				new Description("inaction!!"), new HREF(
@@ -36,16 +32,14 @@ public class TestBookMarkInAction {
 		bookMark.save(post);
 	}
 
-
+	@Test
 	public void testFetch() {
 		System.out.println(bookMark.allPosts(new AllCriteria().withTag(new Tag("pituba forro"))));
 	}
 	
-	public static void main(String[] args) {
-		TestBookMarkInAction action = new TestBookMarkInAction();
+	@BeforeClass
+	public static void before() {		
 		bookMark = new BookMark(new DefaultDeliciousRequester(new User(
 				"#login", "#password"), UserAgent.newDefault()));
-		action.testSave();
-		action.testFetch();
 	}
 }

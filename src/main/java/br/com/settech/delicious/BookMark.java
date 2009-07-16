@@ -40,8 +40,8 @@ public class BookMark {
 		// TODO Auto-generated method stub
 		String result = deliciousRequester.request(allCriteria.attributes(),METHOD.ALL);
 		XStream stream = configureXStreamForReadPosts();
-		Posts posts = (Posts)stream.fromXML(result);
-		return posts;
+		Posts posts = (Posts)stream.fromXML(result);		
+		return posts.createEmptyListOfPostsIfThereArentPosts();
 		
 	}
 

@@ -38,6 +38,8 @@ public class Post {
 	 * @return
 	 */
 	public static Post newPostWithNowTimeNotSharedAndNotReplaceable(Description description, HREF link) {
+		description = description==null?new Description(null):description;
+		link = link==null?new HREF(null):link;
 		return new Post().withDescription(description).withLink(link).withTime(
 				new Time()).withReplace(new Replace(false)).withShared(
 				new Shared(false)).withTag(new Tag(""));
