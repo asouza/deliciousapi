@@ -1,8 +1,5 @@
 package br.com.settech.delicious;
 
-/*
-* caso role alugma exception lanca isso
-*/
 public class InvalidPostException extends RuntimeException {
 
 	public InvalidPostException() {
