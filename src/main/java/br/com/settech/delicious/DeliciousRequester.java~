@@ -4,9 +4,6 @@ import java.util.Collection;
 
 import br.com.settech.delicious.attribute.Attribute;
 
-/**
-* Faz um request la no delicious
-**/
 public interface DeliciousRequester {
 
 	/**
